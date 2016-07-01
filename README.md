@@ -13,7 +13,7 @@ The winner will be the person with the highest percent accuracy or the first per
 ### Rules
 	- Accuracy % must be reproducible (not 1 in 1000 runs)
 	- Thinking outside the box is encouraged, using the file names as the answer is not
-	- Using a bitmap
+	- Using a bitmap is a good place to start
 
 ### Setup
 1. Fork repo
