@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Timers;
 
 namespace UpGoatDownGoat
 {
     class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Main entry point
+        /// </summary>
+        static void Main()
         {
             // Get image locations
             List<string> filePaths = System.IO.Directory.GetFiles("../../Resources").ToList();
@@ -19,27 +24,39 @@ namespace UpGoatDownGoat
             filePaths.Shuffle();
 
             // Run Algorithm on each goat and print results
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             Extensions.PrintResults(filePaths, filePaths.Select(AnalyzeGoat).ToList());
-
-            // Press any key to quit
+            stopWatch.Stop();
+            Console.WriteLine("TIME: " + stopWatch.ElapsedMilliseconds + " ms");
+            Console.WriteLine();
+            Console.WriteLine("press and key to quit...");
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Returns "Up" or "Down" based on the orientation of the goat in the given file path
+        /// </summary>
+        /// <param name="goatFilePath"></param>
         static string AnalyzeGoat(string goatFilePath)
         {
             string upOrDown = "";
             
             // Bitmap could be useful!
-            Bitmap bitmap = new Bitmap(goatFilePath); 
-            Color pixelColor = bitmap.GetPixel(0, 0); // R, G, B, A
-            float pixelHue = pixelColor.GetHue(); // Brightness, Stauration
+            //Bitmap bitmap = new Bitmap(goatFilePath); 
+            //Color pixelColor = bitmap.GetPixel(0, 0); // R, G, B, A
+            //float pixelHue = pixelColor.GetHue(); // Brightness, Stauration
 
 
-            //************************************
-            //************************************ 
-            //       YOUR CODE GOES HERE
-            //************************************
-            //************************************
+
+
+            //************************************************************************
+            //************************************************************************ 
+            //                        YOUR CODE GOES HERE
+            //************************************************************************
+            //************************************************************************
+
+
 
 
             // Return either "Up" or "Down"
@@ -65,7 +82,7 @@ namespace UpGoatDownGoat
 
         public static void PrintResults(List<string> source, List<string> answers)
         {
-            // Yes the answers are here and yes they are in the image name...
+            // Yes the answers are here and yes they are in the file name...
             // But cheating is easy
             int correctCount = 0;
             Console.OutputEncoding = Encoding.Unicode;
@@ -82,8 +99,6 @@ namespace UpGoatDownGoat
             }
             Console.WriteLine();
             Console.WriteLine("SCORE: " + 100.0*((Double)correctCount/(Double)source.Count) + "%");
-            Console.WriteLine();
-            Console.WriteLine("press and key to quit...");
         }
     }
 }
