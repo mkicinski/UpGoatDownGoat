@@ -18,10 +18,10 @@ The winner will be the person with the highest percent accuracy or the first per
 ### Setup
 1. Fork repo
 2. Open UpGoatDownGoat.sln
+3. Add code to UpGoatDownGoat.Program.AnalyzeGoat()
 
 ### Running
-1. Add code to UpGoatDownGoat.Program.AnalyzeGoat()
-2. Debug project or build and run "UpGoatDownGoat\UpGoatDownGoat\bin\Debug\UpGoatDownGoat.exe"
+1. Debug project or build and run "UpGoatDownGoat\UpGoatDownGoat\bin\Debug\UpGoatDownGoat.exe"
 
 ### Miscellaneous
 http://xkcd.com/1425/
